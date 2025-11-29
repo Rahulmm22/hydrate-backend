@@ -101,7 +101,7 @@ app.post('/addReminder', async (req, res) => {
 
 app.post('/sendNotification', async (req, res) => {
   if (!VAPID_PUBLIC_KEY || !VAPID_PRIVATE_KEY) return res.status(500).json({ error: 'VAPID keys not set' });
-  const payload = req.body.payload || { title: 'Hydrate', body: 'Time to drink water 💧', url: '/' };
+  const payload = req.body.payload || { title: 'Hydrate', body: 'Time to drink water 💧', url: 'https://rahulmm22.github.io/hydrate-frontend' };
   webpush.setVapidDetails('mailto:you@example.com', VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
   const db = await readDB();
   const results = [];
